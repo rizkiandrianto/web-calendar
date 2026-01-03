@@ -13,19 +13,21 @@ const MONTH_NAMES = [
   'JULI', 'AGUSTUS', 'SEPTEMBER', 'OKTOBER', 'NOVEMBER', 'DESEMBER'
 ];
 
-const PLACEHOLDER_IMAGES = [
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4', // January - mountain
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4', // February
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4', // March
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4', // April
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4', // May
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4', // June
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4', // July
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4', // August
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4', // September
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4', // October
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4', // November
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4', // December
+const PLACEHOLDER_IMAGE = import.meta.env.VITE_PLACEHOLDER_IMAGE
+
+const PLACEHOLDER_IMAGES = (import.meta.env.VITE_CALENDAR_IMAGES || "").split(',') || [
+  PLACEHOLDER_IMAGE, // January - mountain
+  PLACEHOLDER_IMAGE, // February
+  PLACEHOLDER_IMAGE, // March
+  PLACEHOLDER_IMAGE, // April
+  PLACEHOLDER_IMAGE, // May
+  PLACEHOLDER_IMAGE, // June
+  PLACEHOLDER_IMAGE, // July
+  PLACEHOLDER_IMAGE, // August
+  PLACEHOLDER_IMAGE, // September
+  PLACEHOLDER_IMAGE, // October
+  PLACEHOLDER_IMAGE, // November
+  PLACEHOLDER_IMAGE, // December
 ];
 
 function getMonthHolidays(month: number, year: number): Array<{ day: number; name: string }> {
@@ -88,7 +90,7 @@ export function Calendar({ month, onMonthChange, logo }: CalendarProps) {
         {/* Photo section */}
         <div className="relative" style={{ width: '45%', height: '100%' }}>
           <PhotoFrame
-            src={PLACEHOLDER_IMAGES[month]}
+            src={PLACEHOLDER_IMAGES[month] ?? PLACEHOLDER_IMAGE}
             alt={`Foto ${MONTH_NAMES[month]}`}
             isPhotoLeft={isPhotoLeft}
           />
