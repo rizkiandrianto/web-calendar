@@ -120,10 +120,10 @@ export function Calendar({ month, onMonthChange, logo }: CalendarProps) {
           {/* Holiday list */}
           {monthHolidays.length > 0 && (
             <div className="mt-4 pt-3 border-t border-gray-200">
-              <div className="space-y-1">
+              <div className="space-y-1 grid grid-cols-2">
                 {monthHolidays.map((holiday, index) => (
-                  <div key={index} className="flex items-start gap-2 text-xs">
-                    <span className="text-red-500 capitalize" style={{ fontWeight: 600 }}>
+                  <div key={index} className="text-xs">
+                    <span className="text-red-500 capitalize mr-0.5" style={{ fontWeight: 600 }}>
                       {holiday.day} {MONTH_NAMES[month].toLowerCase()}:
                     </span>
                     <span className="text-gray-700">{holiday.name}</span>
