@@ -105,6 +105,8 @@ export function CalendarGrid({ month, year }: CalendarGridProps) {
     });
   }
 
+  const isNeedSixRows = days.slice(-7).some(day => day.isCurrentMonth);
+
   return (
     <div className="flex-1">
       {/* Day names */}
@@ -114,7 +116,7 @@ export function CalendarGrid({ month, year }: CalendarGridProps) {
             key={dayName}
             className="text-center px-1 py-1 rounded text-white text-xs"
             style={{
-              backgroundColor: index === 6 ? '#10b981' : index === 5 ? '#6b7280' : '#374151',
+              backgroundColor: index === 6 || index === 5 ? '#10b981' : '#374151',
               fontWeight: 600,
             }}
           >
@@ -125,7 +127,7 @@ export function CalendarGrid({ month, year }: CalendarGridProps) {
 
       {/* Calendar days */}
       <div className="grid grid-cols-7 gap-1">
-        {days.slice(0, 35).map((dayData, index) => {
+        {days.slice(0, isNeedSixRows ? 42 : 35).map((dayData, index) => {
           const isHol = isHoliday(dayData.date);
           const isSat = isSaturday(dayData.dayOfWeek);
           const isSun = isSunday(dayData.dayOfWeek);
