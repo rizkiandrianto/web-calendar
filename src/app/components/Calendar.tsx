@@ -58,7 +58,7 @@ export function Calendar({ month, onMonthChange, logo }: CalendarProps) {
   return (
     <div className="relative">
       {/* Navigation buttons */}
-      <div className="absolute -top-12 left-0 right-0 flex justify-center gap-4 z-10">
+      <div className="absolute -top-12 left-0 right-0 flex justify-center gap-4 z-10 print:hidden">
         <button
           onClick={handlePrevMonth}
           disabled={month === 0}
