@@ -98,7 +98,7 @@ export function Calendar({ month, onMonthChange, logo }: CalendarProps) {
         <div className="flex-1 p-8 flex flex-col">
           {/* Logo */}
           <div className="mb-4 border-b pb-4">
-            <img src={logo} alt="Logo" className="h-12 object-contain hidden" />
+            {logo ? <img src={logo} alt="Logo" className="h-12 object-contain hidden" /> : null}
             <h1 className="font-extrabold text-slate-700 text-4xl">2026</h1>
           </div>
 
