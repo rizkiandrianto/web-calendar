@@ -5,7 +5,7 @@ import { PhotoFrame } from './PhotoFrame';
 interface CalendarProps {
   month: number; // 0-11
   onMonthChange: (month: number) => void;
-  logo: string;
+  logo?: string;
 }
 
 const MONTH_NAMES = [
