@@ -1,0 +1,1 @@
+export const COVER_IMAGES = (import.meta.env.VITE_COVER_IMAGES || '').split(',');

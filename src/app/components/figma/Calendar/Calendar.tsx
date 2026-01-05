@@ -82,7 +82,7 @@ export function Calendar({ month, onMonthChange, logo }: CalendarProps) {
         className="bg-white shadow-2xl overflow-hidden"
         style={{
           width: '21cm',
-          height: '15cm',
+          height: '14.8cm',
           display: 'flex',
           flexDirection: isPhotoLeft ? 'row' : 'row-reverse',
         }}
